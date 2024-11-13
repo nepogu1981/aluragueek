@@ -1,22 +1,7 @@
 const API_URL = 'http://localhost:3000/products';
 
 // Función para mostrar mensajes en el DOM
-function showMessage(containerId, message, duration = 3000) {
-    const container = document.getElementById(containerId);
-    container.innerText = message;
-    container.style.display = 'block';
-    setTimeout(() => (container.style.display = 'none'), duration);
-}
 
-// Función para manejar errores
-function showError(message) {
-    showMessage('error-container', message);
-}
-
-// Función para manejar mensajes de éxito
-function showSuccess(message) {
-    showMessage('success-container', message);
-}
 
 // Función para obtener productos de la API y mostrarlos
 async function fetchProducts() {
@@ -52,7 +37,6 @@ function renderProducts(products) {
            
         // Añadir el evento de clic para eliminar el producto
         productCard.querySelector('.delete').addEventListener('click', () => confirmDelete(product.id, product.name));
-
         productList.appendChild(productCard);
     });
 }
@@ -68,7 +52,7 @@ function confirmDelete(id, productName) {
 // Función para agregar un producto a la API
 async function addProduct(name, price, image) {
     const product = { name, price, image };
-    try {
+    
         const response = await fetch(API_URL, {
             method: 'POST',
             headers: {
@@ -76,29 +60,19 @@ async function addProduct(name, price, image) {
             },
             body: JSON.stringify(product)
         });
-        if (!response.ok) throw new Error('Error al agregar producto');
-        showSuccess('Producto agregado correctamente');
+       
         fetchProducts();
        
-    } catch (error) {
-        showError('No se pudo agregar el producto.');
-        console.error(error);
-    }
+   
 }
 
 // Función para eliminar un producto
 async function deleteProduct(id) {
-    try {
+   
         const response = await fetch(`${API_URL}/${id}`, {
             method: 'DELETE'
         });
-        if (!response.ok) throw new Error('Error al eliminar producto');
-        showSuccess('Producto eliminado correctamente');
-        fetchProducts();
-    } catch (error) {
-        showError('No se pudo eliminar el producto.');
-        console.error(error);
-    }
+        
 }
 
 // Función para limpiar el formulario
@@ -117,8 +91,7 @@ document.getElementById('add-product-form').addEventListener('submit', function(
     const image = document.getElementById('product-image').value;
     addProduct(name, price, image);
 
-    // Mostrar mensaje de éxito debajo del formulario
-    showSuccess('Producto agregado exitosamente');
+   
     this.reset(); // Limpiar el formulario después de enviar
 });
 
