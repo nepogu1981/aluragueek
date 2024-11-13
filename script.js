@@ -1,12 +1,7 @@
 const API_URL = 'http://localhost:3000/products';
 
 // Función para mostrar mensajes en el DOM
-function showMessage(containerId, message, duration = 3000) {
-    const container = document.getElementById(containerId);
-    container.innerText = message;
-  
-    setTimeout(() => (container.style.display = 'none'), duration);
-}
+
 
 // Función para manejar errores
 function showError(message) {
