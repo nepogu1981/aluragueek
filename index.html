@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>AluraGeek</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <span>AluraGeek</span>
+    </div>
+    <div class="container">
+        <div class="add-product">
+            <h2>AGREGAR PRODUCTO:</h2>
+            <form class="botones" id="add-product-form">
+                <input placeholder="nombre..." type="text" id="product-name" required/>
+                <input placeholder="precio..." type="text" id="product-price" required/>
+                <input placeholder="imagen..." type="text" id="product-image" required/>
+                
+                <!-- Contenedor para alinear los botones en fila -->
+                <div class="button-group">
+                    <button class="submit" type="submit">Enviar</button>
+                    <button class="reset" type="reset">Limpiar</button>
+                </div>
+            </form>
+            
+        </div>
+        
+        <div class="products">
+            <h2>MIS PRODUCTOS:</h2>
+            <div class="product-list" id="product-list">
+                <!-- Productos se agregarán aquí dinámicamente -->
+            </div>
+            
+        </div>
+
+        
+
+    </div>
+    <div class="footer">
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <span class="alura">AluraGeek</span>
+        <p>DESARROLLADO POR: NESTOR PONCE GULLOSO</p>
+        <p class="año">ALURA | ATAM - 2024</p>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>
