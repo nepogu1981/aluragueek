@@ -1,1 +1,178 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header y Footer */
+.header, .footer {
+    background-color: #6C1FB6;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.año {
+    color: cornflowerblue;
+}
+
+.header i,
+.footer i {
+    color: red;
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    flex-direction: column; /* En móviles, formulario estará encima */
+}
+
+/* Productos y Añadir Producto */
+.products, .add-product {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.products h2, .add-product h2 {
+    text-align: center;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Tarjeta del Producto */
+.product-card {
+    border: 2px solid #6C1FB6;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-color: black;
+}
+
+.product-info {
+    background-color: #6C1FB6;
+    color: white;
+    padding: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.product-info p {
+    margin: 5px 0;
+}
+
+.desarrollo p {
+    color: black;
+}
+
+.product-info .price {
+    font-size: 1.2em;
+}
+
+.product-info .delete {
+    cursor: pointer;
+}
+
+/* Formulario para Añadir Producto */
+.add-product form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.add-product input {
+    width: 80%;
+    max-width: 300px;
+    padding: 10px;
+    border: 2px solid #6C1FB6;
+    border-radius: 15px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.add-product button {
+    width: 60%;
+    max-width: 200px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+}
+
+/* Contenedor para los botones en fila */
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Botón de envío */
+.add-product .submit {
+    background-color: #67a9eb;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.add-product .submit:hover {
+    background-color: #0056b3;
+}
+.add-product .reset:hover {
+    background-color: #0056b3;
+}
+
+.add-product .submit:active {
+    background-color: #004494;
+}
+.add-product .reset:active {
+    background-color: #004494;
+}
+
+/* Botón de reset */
+.add-product .reset {
+    background-color: #67a9eb;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+/* Media Queries para Responsividad */
+@media (min-width: 768px) {
+    /* En pantallas medianas o más grandes, coloca los elementos en fila */
+    .container {
+        flex-direction: row;
+    }
+    
+    .products, .add-product {
+        width: 48%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-card {
+        width: 23%;
+        max-width: none;
+    }
+}
