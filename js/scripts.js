@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/products';
+const API_URL = 'https://github.com/nepogu1981/aluragueek/db.json';
 
 // Función para mostrar mensajes en el DOM
 function showMessage(containerId, message, duration = 3000) {
