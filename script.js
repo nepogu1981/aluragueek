@@ -68,11 +68,10 @@ async function addProduct(name, price, image) {
 
 // Función para eliminar un producto
 async function deleteProduct(id) {
-   
         const response = await fetch(`${API_URL}/${id}`, {
             method: 'DELETE'
         });
-        
+        fetchProducts();     
 }
 
 // Función para limpiar el formulario
@@ -90,8 +89,6 @@ document.getElementById('add-product-form').addEventListener('submit', function(
     const price = document.getElementById('product-price').value;
     const image = document.getElementById('product-image').value;
     addProduct(name, price, image);
-
-   
     this.reset(); // Limpiar el formulario después de enviar
 });
 
