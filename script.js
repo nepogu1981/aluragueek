@@ -1,7 +1,12 @@
 const API_URL = 'http://localhost:3000/products';
 
 // Función para mostrar mensajes en el DOM
-
+function showMessage(containerId, message, duration = 3000) {
+    const container = document.getElementById(containerId);
+    container.innerText = message;
+    container.style.display = 'block';
+    setTimeout(() => (container.style.display = 'none'), duration);
+}
 
 // Función para manejar errores
 function showError(message) {
@@ -31,17 +36,19 @@ function renderProducts(products) {
     const productList = document.getElementById('product-list');
     productList.innerHTML = '';
     products.forEach(product => {
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
         
-    productCard.innerHTML = ` 
-       <img alt="${product.name}" height="150" src="${product.image}" width="150"/>
-        <div class="product-info">
-            <p>${product.name}</p>
-            <p class="price">${new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(product.price)}</p>
-            <i class="fas fa-trash delete"></i>
-        </div>
-    `;
+        productCard.innerHTML = `
+            <img alt="${product.name}" height="150" src="${product.image}" width="150"/>
+            <div class="product-info">
+                <p>${product.name}</p>
+                <p class="price">$ ${product.price}</p>
+                <i class="fas fa-trash delete"></i>
+                 
+            </div>
+           
+        `;
            
         // Añadir el evento de clic para eliminar el producto
         productCard.querySelector('.delete').addEventListener('click', () => confirmDelete(product.id, product.name));
@@ -69,7 +76,7 @@ async function addProduct(name, price, image) {
             },
             body: JSON.stringify(product)
         });
-        
+        if (!response.ok) throw new Error('Error al agregar producto');
         showSuccess('Producto agregado correctamente');
         fetchProducts();
        
