@@ -23,12 +23,16 @@ function renderProducts(products) {
     products.forEach(product => {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
+        const formatter = new Intl.NumberFormat('es-CO', {
+            style: 'currency',
+            currency: 'COP',
+        });
         
         productCard.innerHTML = `
             <img alt="${product.name}" height="150" src="${product.image}" width="150"/>
             <div class="product-info">
                 <p>${product.name}</p>
-                <p class="price">$ ${product.price}</p>
+               <p class="price">${formatter.format(product.price)}</p>
                 <i class="fas fa-trash delete"></i>
                  
             </div>
