@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/products';
+const API_URL = 'https://mocki.io/v1/44a7deec-ae3d-41cf-9bde-1cbf9eeea250';
 
 // Función para mostrar mensajes en el DOM
 
