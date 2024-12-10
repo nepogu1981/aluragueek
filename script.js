@@ -1,4 +1,4 @@
-const API_URL = 'https://mocki.io/v1/44a7deec-ae3d-41cf-9bde-1cbf9eeea250';
+const API_URL = 'https://67579607c0a427baf94d11f5.mockapi.io/productos';
 
 // Función para mostrar mensajes en el DOM
 
